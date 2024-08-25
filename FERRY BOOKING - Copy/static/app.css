@@ -1,0 +1,508 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    /*margin-top: 63px;*/
+}
+
+/* Main Home Banner and Input Search Container r*/
+.home-banner {
+    /* "../" for back to main folder */
+    background-image: url(../static/img/4k-beach-wooden-bridge-wg7zw5lr6imrzb4h.jpg);
+    background-size: cover;
+    background-repeat: round;
+    height: 450px;
+}
+
+.input-search-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: 50%;
+}
+
+.inputIcon {
+    position: absolute;
+    left: 5px;
+    font-size: 25px;
+    vertical-align: middle;
+    color: #AAA;
+}
+
+
+.inputForm {
+    width: 225px;
+    height: 40px;
+    padding-left: 36px;
+}
+
+.inputLabel-default {
+    position: absolute;
+    left: 30px;
+    color: grey;
+    font-weight: 350;
+    font-size: 15px;
+    margin-top: 8px;
+    transition-duration: 0.3s;
+}
+
+.inputLabel-default_2 {
+    position: absolute;
+    left: 35px;
+    color: grey;
+    font-weight: 350;
+    font-size: 15px;
+    margin-top: 8px;
+    transition-duration: 0.3s;
+}
+
+.inputLabel-focusIn {
+    position: absolute;
+    left: 35px;
+    color: #9b9b9b;
+    font-size: 10px;
+    margin-top: 1px;
+}
+
+.slider {
+    width: 80%;
+    height: 400px;
+    background-size: 100% 100%;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: slider 12s infinite linear;
+    box-shadow: 1px 2px 10px 5px white;
+}
+
+@keyframes slider {
+    0% {
+        background-image: url(../img/4k-beach-wooden-bridge-wg7zw5lr6imrzb4h.jpg);
+    }
+
+    24% {
+        background-image: url(../img/boat-with-beach.jpg);
+    }
+
+    48% {
+        background-image: url(../img/image.jpg);
+    }
+
+    72% {
+        background-image: url(../img/);
+    }
+
+    96% {
+        background-image: url(../img/);
+    }
+}
+
+
+/* navbar start */
+.navbar {
+    position: relative;
+    display: flex;
+    padding: 10px;
+    background-color: #9c0b0b;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 7px 5px 15px -4px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 7px 5px 15px -4px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 7px 5px 15px -4px rgba(0, 0, 0, 0.75);
+}
+
+.nav-items>ul>li {
+    position: relative;
+    display: inline;
+    list-style: none;
+    margin: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.nav-items>ul>li>a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-items>ul>li::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 0.17rem;
+    background-color: #dc3545;
+    left: 0;
+    bottom: 0;
+    transform-origin: 0% 100%;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-items>ul>li:hover::after {
+    transform: scaleX(1);
+}
+
+.nav-logo a,
+.nav-button a {
+    color: white;
+    list-style: none;
+    text-decoration: none;
+    display: flex;
+}
+
+.nav-logo {
+    font-size: 32px;
+}
+
+.nav-button {
+    background-color: #c52726;
+    border-radius: 50px;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.anim-layer {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 0;
+    height: 100%;
+    background-color: white;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-button:hover .anim-layer {
+    width: 100%;
+    left: 0;
+}
+
+.nav-button:hover a {
+    color: #141214;
+}
+
+.nav-button a {
+    display: block;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+}
+
+#hamburger-menu,
+#mobile-menu {
+    display: none;
+}
+
+@media only screen and (max-width: 770px) {
+    #mobile-menu {
+        background-color: #c52726;
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        transition: transform 0.3s ease;
+        transform: translateX(-100%);
+    }
+
+    .mobile-nav-items>ul {
+        padding: 0px;
+    }
+
+    .mobile-nav-items>ul>li {
+        text-align: center;
+        position: relative;
+        list-style: none;
+        margin: 10px;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+
+    .mobile-nav-items>ul>li>a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .mobile-nav-items>ul>li::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 0.17rem;
+        background-color: white;
+        left: 0;
+        bottom: 0;
+        transform-origin: 0% 100%;
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
+
+    .mobile-nav-items>ul>li:hover::after {
+        transform: scaleX(1);
+    }
+
+    .mobile-nav-button {
+        background-color: #141214;
+        border-radius: 50px;
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    .mobile-nav-button .anim-layer {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 0;
+        height: 100%;
+        background-color: white;
+        transition: width 0.3s ease, left 0.3s ease;
+    }
+
+    .mobile-nav-button:hover .anim-layer {
+        width: 100%;
+        left: 0;
+    }
+
+    .mobile-nav-button:hover a {
+        color: #141214;
+    }
+
+    .mobile-nav-button a {
+        display: block;
+        padding: 10px 20px;
+        color: white;
+        text-decoration: none;
+        position: relative;
+        z-index: 1;
+    }
+
+    .nav-items>ul,
+    .nav-button {
+        display: none;
+    }
+
+    #hamburger-cross {
+        display: block;
+        color: white;
+        cursor: pointer;
+        font-size: 40px;
+        position: absolute;
+        top: 20px;
+        right: 26px;
+    }
+
+    #hamburger-menu {
+        display: block;
+        color: white;
+        cursor: pointer;
+        font-size: 24px;
+    }
+}
+
+/* navbar end */
+
+
+.rohit {
+    display: flex;
+    justify-content: center;
+}
+
+.rohit2{
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    right: 40%;
+    display: flex;
+    justify-content: center;
+}
+
+
+/* Style for the exchange symbol */
+.exchange-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 1rem;
+}
+
+.exchange-symbol {
+    font-size: 1.5rem;
+    color: var(--secondary);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.exchange-symbol:hover {
+    color: var(--secondary-light);
+}
+
+
+
+/* Coupons Container */
+.holiday-coupon-container {
+    width: 540px;
+    position: absolute;
+    left: 30%;
+    right: 30%;
+    top: -4em;
+}
+
+.holiday-coupon-container>.d-table-cell {
+    height: 100px;
+}
+
+
+
+
+
+/* footer */
+
+
+footer{
+    background-color: #130808;
+}
+.footerContainer{
+    width: 100%;
+    padding: 60px 30px 100px  ;
+}
+.socialIcons{
+    display: flex;
+    justify-content: center;
+}
+.socialIcons a{
+    text-decoration: none;
+    padding:  10px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 50%;
+    transition: .6s;
+}
+.socialIcons a i{
+    font-size: 2em;
+    color: black;
+    opacity: 0,9;
+}
+/* Hover affect on social media icon */
+.socialIcons a:hover{
+    background-color: #111;
+    transition: 0.5s;
+}
+
+/* .socialIcons a:hover{
+    transform: translate(0,-10%);
+}
+
+.socialIcons:nth-child(1) a:hover{
+    background-color: rgb(60, 132, 240);
+}
+
+.socialIcons:nth-child(2) a:hover{
+    background-color: rgb(247, 17, 208);
+}
+
+.socialIcons:nth-child(4) a:hover{
+    background-color: rgb(177, 240, 60);
+} */
+
+.socialIcons a:hover i{
+    color: white;
+    transition: 0.5s;
+}
+
+
+.footerNav{
+    margin: 30px 0;
+}
+.footerNav ul{
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+.footerNav ul li a{
+    color:white;
+    margin: 20px;
+    text-decoration: none;
+    font-size: 1.3em;
+    opacity: 0.7;
+    transition: 0.5s;
+
+}
+.footerNav ul li a:hover{
+    opacity: 1;
+}
+.footerBottom{
+    background-color: #cf5d5d;
+    padding: 20px;
+    text-align: center;
+}
+.footerBottom p{
+    color: white;
+}
+.designer{
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+    margin: 0px 5px;
+}
+@media (max-width: 700px){
+    .footerNav ul{
+        flex-direction: column;
+    } 
+    .footerNav ul li{
+        width:100%;
+        text-align: center;
+        margin: 10px;
+    }
+    .socialIcons a{
+        padding: 8px;
+        margin: 4px;
+    }
+}
+
+
+/* Cashback Container */
+.cashback-container>div {
+    transition: transform .2s;
+}
+
+.cashback-container>div:hover {
+    transform: scale(1.05);
+}
+
+/* Introducing On-Time Guarantee & Track My Bus Container
+	& IOS/Android Container & We Promise To Deliver Container */
+.on-time-guarantee,
+.track-my-bus,
+.ios-android-container .d-flex,
+.we-promise-container>div:nth-child(2) {
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.track-my-bus .d-table-cell {
+    height: 260px;
+}
+
+/* Convenience On-The-Go IOS/Android Container */
+.ios-android-container>div::after {
+    content: "";
+    background-image: url(https://i.postimg.cc/MK7ZzDzX/city-scape-app-download.png);
+    opacity: 0.2;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+}
