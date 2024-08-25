@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Character encoding for the document -->
+    <meta charset="UTF-8" />
+    <!-- Viewport settings for responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Title of the page displayed on the browser tab -->
+    <title>User Dashboard</title>
+    <!-- Link to Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <!-- Link to custom CSS for styling the dashboard -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dashboard.css') }}">
+</head>
+
+<body>
+    <!-- Navigation bar with profile dropdown -->
+    <nav class="navbar">
+        <div class="profile-dropdown">
+            <!-- Button to toggle the profile dropdown menu -->
+            <div onclick="toggle()" class="profile-dropdown-btn">
+                <div class="profile-img">
+                    <!-- Icon for the profile image -->
+                    <i class="fa-solid fa-circle"></i>
+                </div>
+                <span><i class="fa-solid fa-angle-down"></i></span>
+            </div>
+
+            <!-- Profile dropdown menu items -->
+            <ul class="profile-dropdown-list">
+                <li class="profile-dropdown-list-item">
+                    <a href="{{ url_for('edit_profile') }}">
+                        <i class="fa-regular fa-user"></i>
+                        Edit Profile
+                    </a>
+                </li>
+                <li class="profile-dropdown-list-item">
+                    <a href="#">
+                        <i class="fa-regular fa-envelope"></i>
+                        Booking
+                    </a>
+                </li>
+                <li class="profile-dropdown-list-item">
+                    <a href="#">
+                        <i class="fa-solid fa-sliders"></i>
+                        Settings
+                    </a>
+                </li>
+                <li class="profile-dropdown-list-item">
+                    <a href="{{ url_for('help_support') }}">
+                        <i class="fa-regular fa-circle-question"></i>
+                        Help & Support
+                    </a>
+                </li>
+                <hr />
+                <li class="profile-dropdown-list-item">
+                    <a href="{{ url_for('logout') }}">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        Log out
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main content of the page -->
+    <div class="container">
+        <h2>Welcome to the Dashboard</h2>
+
+        <!-- Conditional display of user information -->
+        {% if user %}
+            <p>User Information:</p>
+            <ul>
+                <li>Name: {{ user[1] }} {{ user[2] }}</li>
+                <li>Email: {{ user[3] }}</li>
+            </ul>
+            <!-- Logout button -->
+            <a href="/logout" class="btn btn-dark">Logout</a>
+        {% else %}
+            <p>No user information available.</p>
+        {% endif %}
+    </div>
+
+    <!-- JavaScript to handle dropdown menu toggle -->
+    <script>
+        // Select the profile dropdown list and button
+        let profileDropdownList = document.querySelector(".profile-dropdown-list");
+        let btn = document.querySelector(".profile-dropdown-btn");
+
+        // Get the class list of the dropdown menu
+        let classList = profileDropdownList.classList;
+
+        // Function to toggle the 'active' class on the dropdown menu
+        const toggle = () => classList.toggle("active");
+
+        // Close the dropdown menu if clicked outside of it
+        window.addEventListener("click", function (e) {
+            if (!btn.contains(e.target)) classList.remove("active");
+        });
+    </script>
+</body>
+
+</html>

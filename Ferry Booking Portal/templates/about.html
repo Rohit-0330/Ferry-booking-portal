@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='nav.css') }}">
+    <title>About Us | Rohit Gaikwad</title>
+</head>
+
+<body>
+    
+    {% include 'nav.html' %}
+
+    <div class="container mt-5">
+        <h1 class="mb-4">About Us</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non sagittis purus. Mauris ut libero vel mauris euismod convallis. Nam fringilla interdum eros, ac suscipit ex sodales ac. Ut fringilla eros eget libero fringilla vestibulum.</p>
+        <h2 class="mt-4">Our Mission</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec nulla ac odio interdum facilisis.</p>
+        <h2 class="mt-4">Our Team</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="static/img/team1.jpg" class="card-img-top" alt="Team Member 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Team Member 1</h5>
+                        <p class="card-text">Position and brief description.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="static/img/team2.jpg" class="card-img-top" alt="Team Member 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Team Member 2</h5>
+                        <p class="card-text">Position and brief description.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="static/img/team3.jpg" class="card-img-top" alt="Team Member 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Team Member 3</h5>
+                        <p class="card-text">Position and brief description.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-light text-center py-4 mt-5">
+        <!-- <p>© Copyright 2024 Ferry. All rights reserved.</p> -->
+    </footer>
+
+    {% include 'footer.html' %}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        // navbar.js
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const hamburgerMenu = document.getElementById('hamburger-menu');
+            const hamburgerCross = document.getElementById('hamburger-cross');
+
+            hamburgerMenu.addEventListener('click', function () {
+                mobileMenu.style.transform = 'translateX(0)';
+            });
+
+            hamburgerCross.addEventListener('click', function () {
+                mobileMenu.style.transform = 'translateX(-100%)';
+            });
+        });
+
+    </script>
+    
+</body>
+
+</html>
