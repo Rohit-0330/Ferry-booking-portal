@@ -4,6 +4,7 @@ from wtforms import StringField, PasswordField, IntegerField, RadioField, Select
 from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError
 import bcrypt
 from flask_mysqldb import MySQL
+from flask_sqlalchemy import SQLAlchemy   #for deomo purpose
 
 # Initialize Flask application
 app = Flask(__name__)
@@ -277,3 +278,5 @@ def ticket():
 
 if __name__ == '__main__':
     app.run(debug=True)  # Run the Flask application in debug mode
+
+
