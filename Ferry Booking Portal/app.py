@@ -6,6 +6,7 @@ import bcrypt
 from flask_mysqldb import MySQL
 from flask_sqlalchemy import SQLAlchemy   #for deomo purpose
 
+
 # Initialize Flask application
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'  # Secret key for session management
@@ -108,6 +109,7 @@ def thank_YOU():
     message = "Thank you for registering!"
     return render_template('thankyou.html', message=message)
 
+# User login
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
