@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login Form | Rohit Gaikwad</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(115deg, #56d8e4 10%, #9f01ea 90%);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .main_div {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .title {
+            font-size: 24px;
+            color: #3c00a0;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .input_box {
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .input_box input {
+            width: 100%;
+            padding: 10px 40px 10px 40px;
+            /* Add padding to the right and left for icons */
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .input_box .icon {
+            position: absolute;
+            top: 80%;
+            left: 10px;
+            /* Position icon on the left side */
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: #888;
+        }
+
+        .option_div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .check_box {
+            display: flex;
+            align-items: center;
+            margin-top: 5px;
+        }
+
+        .check_box input {
+            margin-right: 8px;
+        }
+
+        .forget_div {
+            margin-top: 5px;
+            /* Add space above the link */
+        }
+
+        .forget_div a {
+            text-decoration: none;
+            color: #3c00a0;
+        }
+
+        .button input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background: linear-gradient(115deg, #56d8e4, #9f01ea);
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .button input:hover {
+            background: linear-gradient(115deg, #9f01ea, #56d8e4);
+        }
+
+        .sign_up {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .sign_up a {
+            color: #3c00a0;
+            text-decoration: none;
+        }
+
+        .alert {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        .alert ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .alert li {
+            margin: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="main_div">
+        <div class="title">Login Form</div>
+
+        <!-- Flash Messages Handling -->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="alert alert-danger">
+            <ul>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+        {% endwith %}
+
+        <form method="POST" action="{{ url_for('login') }}">
+            {{ form.hidden_tag() }}
+
+            <div class="input_box">
+                {{ form.email.label(class="form-label") }}
+                {{ form.email(class="form-control", placeholder="Email") }}
+                <div class="icon"><i class="fas fa-user"></i></div>
+                {% if form.email.errors %}
+                <div class="alert alert-danger">
+                    {% for error in form.email.errors %}
+                    <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="input_box">
+                {{ form.password.label(class="form-label") }}
+                {{ form.password(class="form-control", placeholder="Password") }}
+                <div class="icon"><i class="fas fa-lock"></i></div>
+                {% if form.password.errors %}
+                <div class="alert alert-danger">
+                    {% for error in form.password.errors %}
+                    <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="option_div">
+                <div class="check_box">
+                    {{ form.remember.label(class="form-check-label") }}
+                    {{ form.remember(class="form-check-input") }}
+                    <!-- <span>Remember me</span> -->
+                </div>
+                <div class="forget_div">
+                    <a href="#">Forgot password?</a>
+                </div>
+            </div>
+
+            <div class="input_box button">
+                {{ form.submit(class="btn btn-primary") }}
+            </div>
+
+            <div class="sign_up">
+                Not an account? <a href="{{ url_for('register') }}">Register now</a>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

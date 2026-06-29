@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Set character encoding for the document -->
+  <meta charset="UTF-8">
+  
+  <!-- Viewport meta tag for responsive design -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Page title displayed in the browser tab -->
+  <title>Success</title>
+  
+  <!-- Link to Google Fonts for custom typography -->
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,900&display=swap" rel="stylesheet">
+  
+  <!-- Link to custom CSS for styling the thank you page -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='thankyou.css') }}">
+</head>
+
+<body>
+  <!-- Main container for the success message -->
+  <div class="card">
+    <!-- Container for the checkmark icon with custom styling -->
+    <div style="border-radius: 200px; height: 200px; width: 200px; background: #F8FAF5; margin: 0 auto;">
+      <!-- Checkmark icon -->
+      <i class="checkmark">✓</i>
+    </div>
+    
+    <!-- Main heading of the success page -->
+    <h1>Success</h1>
+    
+    <!-- Message informing the user of successful account creation -->
+    <p>Congratulations, your account has been successfully created.</p>
+    
+    <!-- Form to redirect the user to the login page -->
+    <form action="/login" method="get">
+      <!-- Submit button styled as a green button -->
+      <button type="submit" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-top: 20px;">
+        OK
+      </button>
+    </form>
+  </div>
+</body>
+
+</html>

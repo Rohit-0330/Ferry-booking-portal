@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Profile</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='edit_profile.css') }}">
+    
+</head>
+
+<body>
+  <section class="container">
+    <header>Edit Profile</header>
+    <form method="POST" action="{{ url_for('edit_profile') }}" class="form">
+      {{ form.hidden_tag() }}
+
+      <div class="input-box">
+        {{ form.FirstName(class="form-control", placeholder="First Name") }}
+        {% for error in form.FirstName.errors %}
+        <div class="invalid-feedback">{{ error }}</div>
+        {% endfor %}
+      </div>
+
+      <div class="input-box">
+        {{ form.LastName(class="form-control", placeholder="Last Name") }}
+        {% for error in form.LastName.errors %}
+        <div class="invalid-feedback">{{ error }}</div>
+        {% endfor %}
+      </div>
+
+      <div class="input-box">
+        {{ form.Email(class="form-control", placeholder="Email") }}
+        {% for error in form.Email.errors %}
+        <div class="invalid-feedback">{{ error }}</div>
+        {% endfor %}
+      </div>
+
+      <div class="input-box">
+        {{ form.Mobile_No(class="form-control", placeholder="Phone Number") }}
+        {% for error in form.Mobile_No.errors %}
+        <div class="invalid-feedback">{{ error }}</div>
+        {% endfor %}
+      </div>
+
+      <div class="input-box">
+        {{ form.Age(class="form-control", placeholder="Enter Age") }}
+        {% for error in form.Age.errors %}
+        <div class="invalid-feedback">{{ error }}</div>
+        {% endfor %}
+      </div>
+
+      <div class="gender-box">
+        <h3>Gender</h3>
+        <div class="gender-option">
+          {% for value, label in form.Gender.choices %}
+          <div class="form-check">
+            <input type="radio" name="Gender" id="check-{{ value }}" value="{{ value }}" 
+              class="form-check-input" {% if form.Gender.data == value %} checked {% endif %}>
+            <label class="form-check-label" for="check-{{ value }}">{{ label }}</label>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="input-box">
+        {{ form.CurrentAddress(class="form-control", placeholder="Current Address") }}
+      </div>
+
+      <div class="input-box">
+        {{ form.PermanentAdd(class="form-control", placeholder="Permanent Address") }}
+      </div>
+
+      <div class="input-box">
+        {{ form.City(class="form-control", placeholder="City") }}
+        {% for error in form.City.errors %}
+        <div class="invalid-feedback">{{ error }}</div>
+        {% endfor %}
+      </div>
+
+      <div class="input-box">
+        {{ form.Pincode(class="form-control", placeholder="Pin Code") }}
+        {% for error in form.Pincode.errors %}
+        <div class="invalid-feedback">{{ error }}</div>
+        {% endfor %}
+      </div>
+
+      <div class="input-box">
+        {{ form.State(class="form-control", placeholder="State") }}
+        {% for error in form.State.errors %}
+        <div class="invalid-feedback">{{ error }}</div>
+        {% endfor %}
+      </div>
+
+      <div class="input-box">
+        {{ form.Country(class="form-control", placeholder="Country") }}
+        {% for error in form.Country.errors %}
+        <div class="invalid-feedback">{{ error }}</div>
+        {% endfor %}
+      </div>
+
+      <button type="submit" class="btn btn-primary">Update Profile</button>
+    </form>
+  </section>
+</body>
+</html>
