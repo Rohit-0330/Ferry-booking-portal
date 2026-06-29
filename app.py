@@ -16,7 +16,7 @@ app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = 'Rohit@5021'
 app.config['MYSQL_DB'] = 'registationdb'
 
-mysql = MySQL(app)
+mysql = MySQL(app) #creates the instance of mysql
 
 # Forms
  
